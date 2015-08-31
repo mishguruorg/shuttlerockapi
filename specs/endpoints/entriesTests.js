@@ -19,7 +19,7 @@ describe('When I try to create a new entry', () => {
         return entries.createEntry('mishtest', {
           type: imageType,
           image_url: imageUrl,
-          name: 'Mish Test Snap 1'
+          name: 'Test Snap 1'
         })
       })
       .then(res => {
