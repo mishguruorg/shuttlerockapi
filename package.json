@@ -4,7 +4,7 @@
   "description": "A wrapper for the shuttlerock api",
   "main": "dist/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel/register --recursive specs && standard",
+    "test": "mocha --compilers js:babel/register --recursive specs && standard",
     "prepublish": "rm -rf dist && babel --optional runtime lib --out-dir dist --copy-files",
     "postpublish": "rm -rf dist"
   },
