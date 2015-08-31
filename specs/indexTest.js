@@ -11,7 +11,7 @@ describe('When I initialise the library', () => {
         done(new Error('No error thrown with No parameters'))
       })
       .catch(err => {
-        if(err.indexOf('called init with any settings') !== -1) {
+        if (err.toString().indexOf('called init with any settings') !== -1) {
           done()
         } else {
           done(err)
@@ -19,7 +19,7 @@ describe('When I initialise the library', () => {
       })
   })
 
-  it('It should change add appropriate fields to settings when they are passed in', function(done) {
+  it('It should change add appropriate fields to settings when they are passed in', function (done) {
     this.timeout(5000)
 
     api.init({
@@ -33,7 +33,5 @@ describe('When I initialise the library', () => {
         done()
       })
       .catch(done)
-
-
   })
 })

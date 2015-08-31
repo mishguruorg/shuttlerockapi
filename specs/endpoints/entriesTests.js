@@ -1,5 +1,4 @@
 /* globals describe, it */
-import { expect } from 'chai'
 import { entries, init } from '../../lib/'
 import { email, password, accountName } from '../config/constants'
 
@@ -7,7 +6,7 @@ const imageUrl = 'https://s3-us-west-2.amazonaws.com/mishguru-dev/mishgurudev/jl
 const imageType = 'photo'
 
 describe('When I try to create a new entry', () => {
-  it('It should post to the correct board if I use a valid boardId', function(done) {
+  it('It should post to the correct board if I use a valid boardId', function (done) {
     this.timeout(7000)
 
     init({
