@@ -1,6 +1,6 @@
 /* globals describe, it */
 import { entries, init } from '../../lib/'
-import { email, password, accountName, boardName } from '../config/constants'
+import { token, accountName, boardName } from '../config/constants'
 
 const imageUrl = 'https://s3-us-west-2.amazonaws.com/mishguru-dev/mishgurudev/jladuval326a9ad9-4270-4aab-9077-446a0a9c1f4e.jpeg'
 const imageType = 'photo'
@@ -14,8 +14,7 @@ describe('When I try to create a new entry', () => {
 
     init({
       accountName,
-      email,
-      password
+      token
     })
       .then(() => {
         return entries.createEntry(boardName, {
@@ -35,8 +34,7 @@ describe('When I try to create a new entry', () => {
 
     init({
       accountName,
-      email,
-      password
+      token
     })
       .then(() => {
         return entries.createEntry(boardName, {

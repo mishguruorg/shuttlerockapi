@@ -1,6 +1,6 @@
 /* globals describe, it */
 import { boards, init } from '../../lib/'
-import { email, password, accountName, boardName } from '../config/constants'
+import { token, accountName, boardName } from '../config/constants'
 
 describe('When I try to get all boards', () => {
   it('It should give me a list of all boards if I am logged in', function (done) {
@@ -8,8 +8,7 @@ describe('When I try to get all boards', () => {
 
     init({
       accountName,
-      email,
-      password
+      token
     })
       .then(() => {
         return boards.getAll()
@@ -27,8 +26,7 @@ describe('When I try to get a single board', () => {
 
     init({
       accountName,
-      email,
-      password
+      token
     })
       .then(() => {
         return boards.getOne(boardName)

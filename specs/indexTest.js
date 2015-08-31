@@ -2,7 +2,7 @@
 import {expect} from 'chai'
 import * as api from '../lib/'
 import * as settings from '../lib/config/settings'
-import { email, password, accountName } from './config/constants'
+import { email, password, accountName, token } from './config/constants'
 
 describe('When I initialise the library', () => {
   it('It should throw an error if I do not input any options', done => {
@@ -19,7 +19,9 @@ describe('When I initialise the library', () => {
       })
   })
 
-  it('It should change add appropriate fields to settings when they are passed in', function (done) {
+  it('It should get a token if email and password are passed in', function (done) {
+    if (!email && !password) return done()
+
     this.timeout(5000)
 
     api.init({
@@ -27,9 +29,27 @@ describe('When I initialise the library', () => {
       email,
       password
     })
-      .then(() => {
+      .then(res => {
+        console.log(res)
         expect(settings.hostname).to.be.eq(`${accountName}.shuttlerock.com`)
         expect(settings.token).to.exist
+        done()
+      })
+      .catch(done)
+  })
+
+  it('It should save a token if it is passed in', function (done) {
+    if (!token) return done()
+
+    this.timeout(5000)
+
+    api.init({
+      accountName,
+      token
+    })
+      .then(() => {
+        expect(settings.hostname).to.be.eq(`${accountName}.shuttlerock.com`)
+        expect(settings.token).to.eq(token)
         done()
       })
       .catch(done)
