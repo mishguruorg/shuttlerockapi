@@ -8,9 +8,9 @@ A wrapper for the shuttlerock api
 ```
   ES6 Syntax
   
-  import * as shuttlerock from 'shuttlerockapi'
+  import { init, entries } from 'shuttlerockapi'
   
-  shuttlerock.init({
+  init({
     email: <API account Email>,
     accountName: <Your Account Name (the xxxx from https://xxxx.shuttlerock.com)>,
     password: <API account Password>
@@ -18,7 +18,7 @@ A wrapper for the shuttlerock api
     .then(res => {
       let token = res.token //this is your api token, you can send this instead of email and password now
       
-      return shuttlerock.entries.createEntry(<Your Board Id>, {
+      return entries.createEntry(<Your Board Id>, {
         name: 'test entry',
         type: 'photo',
         image_url: 'http://i.imgur.com/S2vnl.jpg?1'
